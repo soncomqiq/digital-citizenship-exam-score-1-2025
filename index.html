@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exam Score Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" defer></script>
+    <script type="module" src="./assets/js/app.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <h1>
+            <span class="lang-en">Exam Score Insights</span>
+            <span class="lang-th">แดชบอร์ดวิเคราะห์คะแนนสอบ</span>
+          </h1>
+          <p>
+            <span class="lang-en">Comprehensive analytics for the 10-point assessment.</span>
+            <span class="lang-th">บทวิเคราะห์ครบถ้วนสำหรับการสอบเต็ม 10 คะแนน</span>
+          </p>
+        </div>
+        <div class="action-row">
+          <button id="download-report" class="button">
+            <span class="lang-en">Download Report (CSV)</span>
+            <span class="lang-th">ดาวน์โหลดรายงาน (CSV)</span>
+          </button>
+        </div>
+      </header>
+
+      <section>
+        <h2>
+          <span class="lang-en">Key Metrics</span>
+          <span class="lang-th">สถิติสำคัญ</span>
+        </h2>
+        <div id="summary-cards" class="card-grid" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>
+          <span class="lang-en">Score Distribution</span>
+          <span class="lang-th">การกระจายคะแนน</span>
+        </h2>
+        <div class="table-wrapper">
+          <table id="grade-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <span class="lang-en">Score Range</span>
+                  <span class="lang-th">ช่วงคะแนน</span>
+                </th>
+                <th scope="col">
+                  <span class="lang-en">Students</span>
+                  <span class="lang-th">จำนวนนักเรียน</span>
+                </th>
+                <th scope="col">
+                  <span class="lang-en">Percent</span>
+                  <span class="lang-th">ร้อยละ</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="chart-card" style="margin-top: 1.5rem">
+          <h3>
+            <span class="lang-en">Score Range Concentration</span>
+            <span class="lang-th">ช่วงคะแนนที่นักเรียนหนาแน่น</span>
+          </h3>
+          <div id="score-bands-chart"></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>
+          <span class="lang-en">Visual Analytics</span>
+          <span class="lang-th">ภาพรวมเชิงสถิติ</span>
+        </h2>
+        <div class="chart-grid">
+          <div class="chart-card">
+            <h3>
+              <span class="lang-en">Histogram &amp; Normal Overlay</span>
+              <span class="lang-th">ฮิสโทแกรมและเส้นโค้งปกติ</span>
+            </h3>
+            <div id="histogram"></div>
+          </div>
+          <div class="chart-card">
+            <h3>
+              <span class="lang-en">Box Plot</span>
+              <span class="lang-th">กราฟกล่องแสดงการกระจาย</span>
+            </h3>
+            <div id="box-plot"></div>
+          </div>
+          <div class="chart-card">
+            <h3>
+              <span class="lang-en">Cumulative Distribution</span>
+              <span class="lang-th">กราฟสะสมความน่าจะเป็น</span>
+            </h3>
+            <div id="cdf-plot"></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>
+          <span class="lang-en">Detailed Statistics</span>
+          <span class="lang-th">สถิติเชิงลึก</span>
+        </h2>
+        <div class="table-wrapper">
+          <table id="detailed-stats">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <span class="lang-en">Metric</span>
+                  <span class="lang-th">ตัวชี้วัด</span>
+                </th>
+                <th scope="col">
+                  <span class="lang-en">Value</span>
+                  <span class="lang-th">ค่า</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h2>
+          <span class="lang-en">Performance Insights</span>
+          <span class="lang-th">อินไซต์สำหรับการพัฒนาต่อ</span>
+        </h2>
+        <div class="analysis">
+          <h3>
+            <span class="lang-en">Noteworthy Patterns</span>
+            <span class="lang-th">ประเด็นที่น่าสนใจ</span>
+          </h3>
+          <ul id="insights-list"></ul>
+        </div>
+      </section>
+
+      <p id="status-message" role="status" aria-live="polite"></p>
+
+      <footer>
+        <p>
+          <span class="lang-en">Generated with Plotly.js — ready for GitHub Pages deployment.</span>
+          <span class="lang-th">สร้างด้วย Plotly.js — พร้อมเผยแพร่บน GitHub Pages</span>
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
